@@ -76,14 +76,13 @@ public class Maze extends JFrame {
                     stack.add(nodesMatrix[0][0]);
                     while (!stack.empty() && !result) {
                         MyNode currentNode = stack.pop();
-                        if (!currentNode.isVisited()) {
-                                currentNode.setVisited(true);
-                                setSquareAsVisited(currentNode.getX(), currentNode.getY(), currentNode.isVisited());
+                        if (!visited[currentNode.getX()][currentNode.getY()]) {
+                                setSquareAsVisited(currentNode.getX(), currentNode.getY(),true);
                             if (isTheTarget(currentNode)){
                                 result=true;
                             }else {
                                 for (MyNode neighbor :  currentNode.getNeighbors()) {
-                                    if (!neighbor.isVisited() && isEmpty(neighbor))
+                                    if (!visited[neighbor.getX()][neighbor.getY()] && isEmpty(neighbor))
                                         stack.add(neighbor);
 
                                 }
@@ -158,22 +157,22 @@ public class Maze extends JFrame {
         return nodes;
     }
 
-    private void initNeighbors(MyNode[][] nodesList) {
+    private void initNeighbors(MyNode[][] nodesMatrix) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                MyNode currentNode = nodesList[i][j];
+                MyNode currentNode = nodesMatrix[i][j];
 
                 if (isValidIndex(i - 1) != Definitions.INVALID_INDEX) {
-                    currentNode.addNeighbor(nodesList[i - 1][j]);
+                    currentNode.addNeighbor(nodesMatrix[i - 1][j]);
                 }
                 if (isValidIndex(j - 1) !=  Definitions.INVALID_INDEX) {
-                    currentNode.addNeighbor(nodesList[i][j - 1]);
+                    currentNode.addNeighbor(nodesMatrix[i][j - 1]);
                 }
                 if (isValidIndex(i + 1) !=  Definitions.INVALID_INDEX) {
-                    nodesList[i][j].addNeighbor(nodesList[i + 1][j]);
+                    nodesMatrix[i][j].addNeighbor(nodesMatrix[i + 1][j]);
                 }
                 if (isValidIndex(j + 1) !=  Definitions.INVALID_INDEX) {
-                    currentNode.addNeighbor(nodesList[i][j + 1]);
+                    currentNode.addNeighbor(nodesMatrix[i][j + 1]);
                 }
 
             }

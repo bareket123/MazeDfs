@@ -4,7 +4,6 @@ import java.util.List;
 public class MyNode {
     private int x;
     private int y;
-    private boolean isVisited;
     private List<MyNode> neighbors;
 
     public MyNode(int x,int y){
@@ -33,14 +32,6 @@ public class MyNode {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public boolean isVisited() {
-        return isVisited;
-    }
-
-    public void setVisited(boolean visited) {
-        isVisited = visited;
     }
 
     public List<MyNode> getNeighbors() {
