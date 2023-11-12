@@ -1,5 +1,5 @@
 # Maze-DFS
-A game
+
 <h3>Description</h3>
 <div>
  Solve a maze Using the Depth-First Search (DFS) algorithm, users can input different maze sizes. 
