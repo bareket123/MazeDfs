@@ -6,5 +6,10 @@
   It's essential to note that not all mazes are solvable, and the DFS algorithm identifies the solvability of entered mazes. 
   This concise process combines user input, DFS efficiency, and consideration of maze solvability.
 </div>
+<h3>Installation</h3>
+
+Clone the Repository:
+
+``https://github.com/bareket123/MazeDfs.git``
 
 
